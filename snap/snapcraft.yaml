@@ -11,6 +11,13 @@ description: |
 grade: devel # must be 'stable' to release into candidate/stable channels
 confinement: strict
 
+architectures:
+  - build-on: amd64
+
+layout:
+  /usr/share/libdrm:
+    bind: $SNAP/usr/share/libdrm
+
 parts:
   desktop-gtk2:
     source: .
@@ -35,7 +42,6 @@ parts:
       - unity-gtk2-module
       - locales-all
       - libappindicator1
-      - xdg-user-dirs
       - ibus-gtk
       - libibus-1.0-5
 
