@@ -1,7 +1,12 @@
 name: runescape-rujak
 base: core18
 version: '0.7'
-summary: RuneScape is a massively multiplayer online role-playing game created by Jagex
+summary: Unoficial RuneScape Game Client # 79 char long summary
+description: |
+  RuneScape is a massively multiplayer online role-playing game created by Jagex Ltd..  This
+  client allows you to play the game as never before!  By installing this software you are
+  agreeing to the End User Licence Agreement (see /usr/share/doc/runescape-launcher
+  copyright).
 
 grade: devel # must be 'stable' to release into candidate/stable channels
 confinement: strict
