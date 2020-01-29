@@ -1,22 +1,17 @@
-name: runescape-rujak # you probably want to 'snapcraft register <name>'
+name: runescape-rujak
 base: core18
-version: '0.6' # just for humans, typically '1.2+git' or '1.3.2'
-summary: Unoficial RuneScape Game Client # 79 char long summary
-description: |
+version: '0.7'
+summary: Unoficial RuneScape Game Client 
   RuneScape is a massively multiplayer online role-playing game created by Jagex Ltd..  This
   client allows you to play the game as never before!  By installing this software you are
   agreeing to the End User Licence Agreement (see /usr/share/doc/runescape-launcher
   copyright).
 
 grade: devel # must be 'stable' to release into candidate/stable channels
-confinement: strict # use 'strict' once you have the right plugs and slots
+confinement: strict
 
 parts:
   desktop-gtk2:
-    #override-build: |
-    #  cd gtk/
-    #  ls
-    #  snapcraftctl build
     source: .
     source-subdir: gtk
     plugin: make
@@ -49,11 +44,6 @@ parts:
     source-type: deb
 
   runescape-launcher:
-    #override-build: |
-    #  sudo apt remove libcurl4 -y
-    #  sudo apt install libcurl3 curl3 -y
-    #  snapcraftctl build
-    # See 'snapcraft plugins'
     plugin: dump
     source: https://content.runescape.com/downloads/ubuntu/pool/non-free/r/runescape-launcher/runescape-launcher_2.2.6_amd64.deb
     source-type: deb
@@ -84,16 +74,12 @@ parts:
       - libgl1-mesa-glx
       - libgl1
       - libterm-readline-perl-perl
-      - xdg-utils
 
 apps:
   runescape-launcher:
     command: bin/desktop-launch $SNAP/usr/share/games/runescape-launcher/runescape
-    #desktop:  usr/share/applications/runesacpe-launcher.desktop
     environment:
-      PULSE_LATENCY_MSEC: 100
-      MESA_DEBUG: 1
-      LIBGL_DEBUG: verbose
+      PULSE_LATENCY_MSEC: 140
       MESA_GL_VERSION_OVERRIDE: 4.5
     plugs:
       - desktop
